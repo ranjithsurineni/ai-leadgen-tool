@@ -1,10 +1,6 @@
 
----
 
-## ✅ 8. `report.md`
-
-```markdown
-# Report: AI-Based Lead Prioritization Tool
+# Report: AI-Based Lead Prioritization Tool for enhacement- (Update-soom...)
 
 ### Objective
 To build a simple AI-powered tool that ranks B2B leads based on title relevance and decision-making signals.
