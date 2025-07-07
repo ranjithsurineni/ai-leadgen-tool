@@ -1,0 +1,136 @@
+AI Leadgen Tool – Smart Job Scraper & Prioritizer
+
+Pre-Internship Project Submission | Caprae Capital AI Handbook Challenge
+Built by: Ranjith Kumar Surineni.
+
+---
+Goal:
+Build an AI-powered lead generation platform that intelligently scrapes remote job listings from the web, prioritizes them using NLP, and displays results in an intuitive dashboard with filters, flow-tracking, and CSV export.
+
+---
+Problem Solved:
+Recruiters, founders, and growth teams waste hours manually browsing for high-value AI/tech startup roles (like Founders, CTOs). This tool automates:
+
+1. Lead scraping from RemoteOK (AI/startup jobs)
+
+2. Semantic ranking based on strategic keywords ("AI", "founder", "growth", etc.)
+
+3. Instant filtering + CSV downloads
+
+4. Visual exploration with score sliders and bar charts
+
+---
+Technologies Used:
+
+1. UI -	Streamlit
+2. Web Scraping -	requests, BeautifulSoup
+3. NLP Ranking -	sentence-transformers (MiniLM)
+4. Data Handling -	pandas, numpy
+5. File I/O	- '.csv' format
+
+---
+Folder Structure:
+
+AI Leadgen Tool/
+├── app/
+│   └── app.py                  ← Streamlit main dashboard
+├── src/
+│   ├── scraper2.py             ← Job scraper (RemoteOK API/soup)
+│   └── ranker.py               ← Lead ranking logic with SentenceTransformer
+├── data/
+│   ├── leads_raw.csv           ← Output: Scraped job data
+│   └── leads_ranked.csv        ← Output: Ranked & scored jobs
+└── requirements.txt            ← Python dependencies
+
+---
+Core Execution Flow:
+
+1. User Inputs Filters:
+
+   - Keyword (e.g. "AI")
+
+   - Location (e.g. "Worldwide")
+
+   - Field (e.g. "DS")
+
+   - Experience level
+
+2. Scrape Jobs via scrape_remoteok_jobs()
+
+   - Results saved to leads_raw.csv
+
+3. Rank Jobs via rank_leads()
+
+   - Cosine similarity to keywords like:
+
+        - "founder", "CTO", "scaling", "AI", "series A"...
+
+   - Result saved to leads_ranked.csv
+
+4. Display Data:
+
+   - Table (filtered by score)
+
+   - Downloadable CSVs
+
+   - Flowchart progress tracker
+
+   - Score bar chart
+
+   - Clickable job links
+
+---
+Key Features:
+
+| Feature                   | Description                                     |
+| ------------------------- | ----------------------------------------------- |
+|  Sidebar Flow Tracker   | Visual stage updates: Scraping → Ranking → Done |
+|  Score Threshold Filter | Adjust minimum relevance score dynamically      |
+|  CSV Download           | Download full or filtered results               |
+|  Charting               | Bar chart of score distribution                 |
+|  Clickable Job Links    | Direct access to live job postings              |
+|  Smart Filters          | Choose keyword, field, location, experience     |
+
+---
+Outputs Generated:
+
+    - leads_raw.csv – All scraped job data
+
+    - leads_ranked.csv – Jobs scored by AI-relevance
+
+    - leads_filtered.csv – Top results after filtering
+
+---
+Why This Works:
+
+    - Fast NLP scoring with MiniLM (low-latency)
+
+    - Clean UI with real-time filtering
+
+    - Ideal for investors, founders, recruiters, analysts
+
+    - Easily extendable to other platforms (LinkedIn, Y Combinator)
+
+---
+Final Thoughts:
+
+This project demonstrates end-to-end automation of AI lead discovery, integrating NLP, scraping, filtering, and data visualization in a deployable, intuitive app—all under 5 hours.
+
+
+---
+
+This AI Lead Generation Tool was built within a tight 5-hour challenge window to showcase core functionality around scraping, ranking, and visualizing job leads. While the core system effectively filters remote job listings and ranks them using Sentence-BERT with cosine similarity to prioritize high-impact roles (like CTO, Founder, etc.), I acknowledge that some advanced features—such as CAPTCHA bypass automation, dynamic source selection (Indeed, LinkedIn, AngelList, etc.), and multi-site orchestration—could not be implemented within the time limit.
+
+Future enhancements will involve:
+
+AI-driven CAPTCHA solving or browser automation using tools like Selenium with stealth plugins.
+
+Modular site adapters to choose data sources dynamically based on user input (e.g., scrape tech jobs from RemoteOK, finance roles from eFinancialCareers).
+
+Job enrichment pipelines using APIs (e.g., Clearbit or LinkedIn enrichment) to extract verified decision-maker emails or company stage data.
+
+Scoring enhancements using domain-specific NLP embeddings or LLMs to assess job descriptions contextually.
+
+CRM and outbound automation integrations (e.g., HubSpot, Apollo) for immediate pipeline activation.
+
+This tool is particularly useful for B2B SaaS startups, talent acquisition firms, VC scouts, or boutique M&A teams who need to discover fast-growing, niche talent or founder-led startups. It can be monetized via tiered subscriptions, with access to scraping limits, smart filters, automation integrations, and premium exports. The potential for this product spans recruitment automation, B2B sales intelligence, and venture sourcing, turning it into a full-fledged AI-powered "prospect engine."
